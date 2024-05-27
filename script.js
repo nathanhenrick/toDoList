@@ -4,11 +4,12 @@ const generalContainer = document.querySelector("#generalContainer");
 // const close = document.querySelector(".fi-br-cross");
 // const checked = document.querySelector(".check");
 //*---------------------------------------------------------*//
-const checked = document.createElement("input");
-const parag = document.createElement("p");
-const cross = document.createElement("i");
 
 form.addEventListener("submit", function (e) {
+  let checked = document.createElement("input");
+  let parag = document.createElement("p");
+  let cross = document.createElement("i");
+
   e.preventDefault();
 
   const ul = document.createElement("ul");
@@ -20,7 +21,6 @@ form.addEventListener("submit", function (e) {
   checked.type = "checkbox";
   checked.className = "check";
 
-  parag;
   parag.textContent = inputText.value;
 
   cross.className = "fi fi-br-cross";
@@ -34,9 +34,7 @@ form.addEventListener("submit", function (e) {
   if (inputText.value.length > 0 && inputText.value.length < 21) {
     inputText.value = "";
   } else {
-    
   }
-  
 });
 
 checked.addEventListener("click", function (event) {

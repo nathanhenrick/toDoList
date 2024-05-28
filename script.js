@@ -35,16 +35,16 @@ form.addEventListener("submit", function (e) {
     inputText.value = "";
   } else {
   }
+  checked.addEventListener("click", function (event) {
+    const checkBoolean = event.target.checked;
+    if (checkBoolean === true) {
+      parag.style.textDecoration = "line-through";
+    } else {
+      parag.style.textDecoration = "none";
+    }
+  });
 });
 
-checked.addEventListener("click", function (event) {
-  const checkBoolean = event.target.checked;
-  if (checkBoolean === true) {
-    parag.style.textDecoration = "line-through";
-  } else {
-    parag.style.textDecoration = "none";
-  }
-});
 
 // cross.addEventListener('click', function(event) {
 

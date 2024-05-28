@@ -1,22 +1,24 @@
 const inputText = document.getElementById("inputText");
 const form = document.getElementById("form");
 const generalContainer = document.querySelector("#generalContainer");
-// const close = document.querySelector(".fi-br-cross");
-// const checked = document.querySelector(".check");
+
 //*---------------------------------------------------------*//
 
 form.addEventListener("submit", function (e) {
-  let checked = document.createElement("input");
-  let parag = document.createElement("p");
-  let cross = document.createElement("i");
-
   e.preventDefault();
 
+  if (inputText.value.length === 0 || inputText.value.length < 21) {
+    return;
+  }
   const ul = document.createElement("ul");
   const li = document.createElement("li");
   li.className = "dataList";
 
   ul.appendChild(li);
+
+  let checked = document.createElement("input");
+  let parag = document.createElement("p");
+  let cross = document.createElement("i");
 
   checked.type = "checkbox";
   checked.className = "check";
@@ -31,27 +33,21 @@ form.addEventListener("submit", function (e) {
 
   generalContainer.appendChild(ul);
 
-  if (inputText.value.length > 0 && inputText.value.length < 21) {
-    checked.addEventListener("click", function (event) {
-      const checkBoolean = event.target.checked;
-      if (checkBoolean === true) {
-        parag.style.textDecoration = "line-through";
-      } else {
-        parag.style.textDecoration = "none";
-      }
-    });
+  checked.addEventListener("click", function (event) {
+    const checkBoolean = event.target.checked;
+    if (checkBoolean === true) {
+      parag.style.textDecoration = "line-through";
+    } else {
+      parag.style.textDecoration = "none";
+    }
+  });
 
-    inputText.value = "";
-
-    cross.addEventListener("click", function (event) {
+  
+  cross.addEventListener("click", function () {
       ul.removeChild(li);
       if (ul.children.length === 0) {
-        generalContainer.removeChild(ul);
-      }
+          generalContainer.removeChild(ul);
+        }
     });
-  }
+    inputText.value = "";
 });
-
-// cross.addEventListener('click', function(event) {
-
-// })

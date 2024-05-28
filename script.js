@@ -7,8 +7,8 @@ const generalContainer = document.querySelector("#generalContainer");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (inputText.value.length === 0 || inputText.value.length < 21) {
-    return;
+  if (inputText.value.length === 0 && inputText.value.length < 21) {
+    return alert("Por favor, insira de 1 e 20 caracteres.");
   }
   const ul = document.createElement("ul");
   const li = document.createElement("li");
@@ -27,8 +27,12 @@ form.addEventListener("submit", function (e) {
 
   cross.className = "fi fi-br-cross";
 
+  let edit = document.createElement("i");
+  edit.className = "fi fi-rr-edit";
+
   li.appendChild(checked);
   li.appendChild(parag);
+  li.appendChild(edit);
   li.appendChild(cross);
 
   generalContainer.appendChild(ul);
@@ -42,12 +46,11 @@ form.addEventListener("submit", function (e) {
     }
   });
 
-  
   cross.addEventListener("click", function () {
-      ul.removeChild(li);
-      if (ul.children.length === 0) {
-          generalContainer.removeChild(ul);
-        }
-    });
-    inputText.value = "";
+    ul.removeChild(li);
+    if (ul.children.length === 0) {
+      generalContainer.removeChild(ul);
+    }
+  });
+  inputText.value = "";
 });

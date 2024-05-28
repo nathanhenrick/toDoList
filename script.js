@@ -27,12 +27,12 @@ form.addEventListener("submit", function (e) {
 
   cross.className = "fi fi-br-cross";
 
-  let edit = document.createElement("i");
-  edit.className = "fi fi-rr-edit";
+//   let edit = document.createElement("i");
+//   edit.className = "fi fi-rr-edit";
 
   li.appendChild(checked);
   li.appendChild(parag);
-  li.appendChild(edit);
+//   li.appendChild(edit);
   li.appendChild(cross);
 
   generalContainer.appendChild(ul);

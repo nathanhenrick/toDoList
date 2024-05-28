@@ -32,20 +32,26 @@ form.addEventListener("submit", function (e) {
   generalContainer.appendChild(ul);
 
   if (inputText.value.length > 0 && inputText.value.length < 21) {
-    inputText.value = "";
-  } else {
-  }
-  checked.addEventListener("click", function (event) {
-    const checkBoolean = event.target.checked;
-    if (checkBoolean === true) {
-      parag.style.textDecoration = "line-through";
-    } else {
-      parag.style.textDecoration = "none";
-    }
-  });
-});
+    checked.addEventListener("click", function (event) {
+      const checkBoolean = event.target.checked;
+      if (checkBoolean === true) {
+        parag.style.textDecoration = "line-through";
+      } else {
+        parag.style.textDecoration = "none";
+      }
+    });
 
+    inputText.value = "";
+
+    cross.addEventListener("click", function (event) {
+      ul.removeChild(li);
+      if (ul.children.length === 0) {
+        generalContainer.removeChild(ul);
+      }
+    });
+  }
+});
 
 // cross.addEventListener('click', function(event) {
 
-// });
+// })
